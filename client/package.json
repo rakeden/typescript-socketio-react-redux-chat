@@ -4,6 +4,8 @@
   "description": "a simple react chatapp w/ material ui and socket.io communication",
   "main": "index.js",
   "scripts": {
+    "start": "tsc --p ./tsconfig.json && node ./build/index.js",
+    "dev": "tsc-watch --p ./tsconfig.json --onSuccess \"node ./build/index.js\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "rakeden",
