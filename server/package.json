@@ -1,0 +1,22 @@
+{
+  "name": "typescript-socket-io-server",
+  "version": "0.0.1",
+  "description": "a simple socket.io backend written in typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rakeden/typescript-socketio-react-redux-chat.git"
+  },
+  "author": "rakeden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rakeden/typescript-socketio-react-redux-chat/issues"
+  },
+  "homepage": "https://github.com/rakeden/typescript-socketio-react-redux-chat#readme",
+  "devDependencies": {
+    "typescript": "^2.2.0"
+  }
+}
