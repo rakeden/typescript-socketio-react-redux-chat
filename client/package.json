@@ -1,0 +1,19 @@
+{
+  "name": "typescript-react-material-chatapp",
+  "version": "0.0.1",
+  "description": "a simple react chatapp w/ material ui and socket.io communication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rakeden",
+  "license": "ISC",
+  "devDependencies": {
+    "tsc-watch": "^1.0.5",
+    "typescript": "^2.2.0"
+  },
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}
