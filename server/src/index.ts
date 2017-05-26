@@ -3,12 +3,13 @@ import * as path from "path";
 import * as http from "http";
 
 class Server {
-    private server: any;
+
     public app: any;
-    private io: any;
-    private port = 8008;
+    private server: any;
+    private port: number;
 
     constructor() {
+        this.port = 8008;
         this.createApp();
         this.createServer();
         this.listen();
