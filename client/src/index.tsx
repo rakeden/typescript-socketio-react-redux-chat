@@ -1,7 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import App from './components/App';
 
 ReactDOM.render(
-    <p>Chat App w/ React/Redux FTW!</p>,
-    document.querySelector('#app')
+    <App text="Hello" />,
+    document.getElementById('app')
 );
