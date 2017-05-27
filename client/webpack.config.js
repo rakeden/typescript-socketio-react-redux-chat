@@ -3,15 +3,14 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HOST = process.env.HOST || '127.0.0.1';
-const PORT = process.env.PORT || '8888';
+const PORT = process.env.PORT || '8088';
 
 module.exports = {
     entry: './src/index.tsx',
 
     // Specify output
     output: {
-        publicPath: './',
-        path: path.join(__dirname, 'build'),
+        path: path.join(__dirname, 'build/'),
         filename: 'bundle.js'
     },
 
@@ -24,7 +23,7 @@ module.exports = {
         // do not print bundle build stats
         noInfo: true,
         // enable HMR
-        hot: true,
+        hot: false,
         // embed the webpack-dev-server runtime into the bundle
         inline: true,
         // serve index.html in place of 404 responses to allow HTML5 history
