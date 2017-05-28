@@ -20,13 +20,13 @@ export default class ChatPanel extends React.Component<any, State> {
         super(props);
     }
     
-    private static state: State = {
+    state: State = {
         messages: [{
             from: 'Jannis Migdalas',
             text: 'Message'
         },{
             from: 'Jannis Migdalas',
-            text: 'Message'
+            text: 'Message und so weiter und viel mehr Text so fortgesetzt'
         }]
     }
 
@@ -35,7 +35,9 @@ export default class ChatPanel extends React.Component<any, State> {
         return(
             <div className="chatView">
                 <div className="chatList">
-                    <Message from="Jannis Migdalas" text="Das ist meine Nachricht"/>
+                    {this.state.messages.map( (message: MessageItem, index) => 
+                        <Message key={index} from={message.from} text={message.text}/>  
+                    )}
                 </div>
                 <ChatInput />
             </div>

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Paper from 'material-ui/Paper';
+import './styles.scss';
 
 interface Props {
     from: string,
@@ -14,11 +15,13 @@ export default class Message extends React.Component<Props, any> {
     }
 
     render() {
+        const { text, from } = this.props;
+
         return (
             <Paper zDepth={3} className="message">
                 <p>
-                    <span className="from">Jannis Migdalasundco</span>
-                    <span className="text">Das ist meine etwas längere Nachricht</span>
+                    <span className="from">{from}</span>
+                    <span className="text">{text}</span>
                 </p>
             </Paper>
         )
