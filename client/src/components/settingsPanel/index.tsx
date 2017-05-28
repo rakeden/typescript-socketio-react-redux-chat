@@ -4,7 +4,9 @@ import './styles.scss';
 export default class SettingsPanel extends React.Component<any, any> {
     public render() {
         return(
-            <p>Settings Panel</p>
+            <div className="settingsPanel">
+                Settings Panel
+            </div>
         )
     }
 }

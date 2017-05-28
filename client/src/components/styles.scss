@@ -1,14 +1,20 @@
 .appWrapper {
     background-color: #FAFAFA;
     min-height: 100vh;
-    .ui-wrapper {
+    .chatWrapper {
+        position: relative;
         height: 667px;
         width: 375px;
         max-height: 667px;
         max-width: 375px;
         margin: 20px;
-        text-align: 'center';
-        display: 'inline-block'
-
+        
+        .chatLayout {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
     }
 }
