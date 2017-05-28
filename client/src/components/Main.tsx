@@ -4,6 +4,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {MuiThemeProvider, darkBaseTheme} from "material-ui/styles";
 import Paper from 'material-ui/Paper';
 import Layout from './layout';
+import './styles.scss';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
