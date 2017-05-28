@@ -1,15 +1,24 @@
 import * as React from 'react';
+import BottomNav from './BottomNav';
 
-interface Props extends React.Props<App> {
-    text: string
+const styles = {
+    wrapper: {
+        display: 'flex'
+    },
+    bottomNav: {
+        flex: 1
+    },
 }
 
-class App extends React.Component<Props, null> {
+class App extends React.Component<any, any> {
+
     public render() {
         return(
-            <p>{this.props.text}</p>
+            <div style={styles.wrapper} >
+                <BottomNav  style={styles.bottomNav} />
+            </div>
         )
     }
 }
 
-export default App;
+export default App
