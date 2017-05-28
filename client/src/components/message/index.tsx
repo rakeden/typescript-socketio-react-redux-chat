@@ -6,7 +6,6 @@ interface Props {
     text: string,
 }
 
-
 export default class Message extends React.Component<Props, any> {
 
     constructor(props: any) {
