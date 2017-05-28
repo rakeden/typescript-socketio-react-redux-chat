@@ -1,12 +1,16 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const HOST = process.env.HOST || '127.0.0.1';
 const PORT = process.env.PORT || '8088';
 
 module.exports = {
-    entry: './src/index.tsx',
+    entry: [
+        './src/index.tsx',
+        './src/scss/style.scss'
+    ],
 
     // Specify output
     output: {
@@ -41,6 +45,42 @@ module.exports = {
         rules: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+            
+            // All files with a '.css' '.scss' extension will be handled by 'css-loader' or 'sass-loader'
+            { 
+                test: /(\.css|\.scss)$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true,
+                                modules: true,
+                                importLoaders: true,
+                                localIdentName: '[name]__[local]___[hash:base64:5]'
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: true,
+                                plugins: function () {
+                                    return [
+                                        require('autoprefixer')
+                                    ];
+                                }
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
+                })
+             },
 
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
@@ -56,5 +96,7 @@ module.exports = {
                 js: ['bundle.js'],
             }
         }),
+        //Generate bundle.css => https://github.com/webpack/extract-text-webpack-plugin
+        new ExtractTextPlugin('bundle.css'),
     ]
 };

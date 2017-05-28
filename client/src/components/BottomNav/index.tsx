@@ -4,10 +4,7 @@ import {
     BottomNavigation,
     BottomNavigationItem
 } from 'material-ui/BottomNavigation';
-
-const itemStyles = {
-    maxWidth: 'auto'
-}
+import './styles.scss';
 
 const chatIcon = <FontIcon className="material-icons">chat</FontIcon>;
 const settingsIcon = <FontIcon className="material-icons" >settings</FontIcon>;
@@ -25,17 +22,20 @@ class BottomNav extends React.Component<any, any> {
     public render() {
         console.log(this);
         return(
-            <BottomNavigation selectedIndex={this.state.selectedIndex}>
+            <BottomNavigation 
+                selectedIndex={this.state.selectedIndex}
+                className="bottomNav"
+            >
                 <BottomNavigationItem
                     label="Chat"
                     icon={chatIcon}
-                    style={itemStyles}
+                    className="bottomNavButton"
                     onTouchTap={() => this.select(0)}
                 />
                 <BottomNavigationItem
                     label="Settings"
                     icon={settingsIcon}
-                    style={itemStyles}
+                    className="bottomNavButton"
                     onTouchTap={() => this.select(1)}
                 />
             </BottomNavigation>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BottomNav from './BottomNav';
+import BottomNav from './BottomNav/';
 
 const styles = {
     wrapper: {
@@ -14,8 +14,8 @@ class App extends React.Component<any, any> {
 
     public render() {
         return(
-            <div style={styles.wrapper} >
-                <BottomNav  style={styles.bottomNav} />
+            <div className="chatWrapper">
+                <BottomNav />
             </div>
         )
     }
