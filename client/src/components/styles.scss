@@ -1,0 +1,14 @@
+.appWrapper {
+    background-color: #FAFAFA;
+    min-height: 100vh;
+    .ui-wrapper {
+        height: 667px;
+        width: 375px;
+        max-height: 667px;
+        max-width: 375px;
+        margin: 20px;
+        text-align: 'center';
+        display: 'inline-block'
+
+    }
+}

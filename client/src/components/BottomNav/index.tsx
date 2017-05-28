@@ -9,7 +9,7 @@ import './styles.scss';
 const chatIcon = <FontIcon className="material-icons">chat</FontIcon>;
 const settingsIcon = <FontIcon className="material-icons" >settings</FontIcon>;
 
-class BottomNav extends React.Component<any, any> {
+export default class BottomNav extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = { selectedIndex: 0 }
@@ -42,5 +42,3 @@ class BottomNav extends React.Component<any, any> {
         )
     }
 }
-
-export default BottomNav
