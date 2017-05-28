@@ -13,6 +13,7 @@
 
         .react-swipeable-view-container {
             flex: 0 1 100%;
+            max-width: 100%;
 
             > [data-swipeable] {
                 display: flex;
@@ -24,5 +25,9 @@
     .tabControls {
         display: block;
         flex: 0 1 50px;
+
+        button {
+            color: #FFF!important;
+        }
     }
 }

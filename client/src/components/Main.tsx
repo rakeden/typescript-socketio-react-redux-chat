@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as injectTapEventPlugin from 'react-tap-event-plugin';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {MuiThemeProvider, lightBaseTheme} from "material-ui/styles";
+import {MuiThemeProvider, darkBaseTheme} from "material-ui/styles";
 import Paper from 'material-ui/Paper';
 import Layout from './layout';
 import './styles.scss';
@@ -11,12 +11,12 @@ import './styles.scss';
 injectTapEventPlugin();
 
 // setting material-ui dark theme
-const lightkMuiTheme = getMuiTheme(lightBaseTheme);
+const darkMuiTheme = getMuiTheme(darkBaseTheme);
 
 export default class Main extends React.Component<any, any> {
     public render() {
         return(
-            <MuiThemeProvider muiTheme={lightkMuiTheme}>
+            <MuiThemeProvider muiTheme={darkMuiTheme}>
                 <div className="appWrapper">
                     <Paper className="chatWrapper" zDepth={3} >
                         <Layout />

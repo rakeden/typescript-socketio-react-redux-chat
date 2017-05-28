@@ -1,5 +1,4 @@
 .appWrapper {
-    background-color: #FAFAFA;
     min-height: 100vh;
     position: relative;
 
@@ -14,8 +13,8 @@
         max-width: 375px;
 
         .tabPanel {
+            display: flex;
             flex: 0 1 100%;
-            padding: 1em;
         }
     }
 }
