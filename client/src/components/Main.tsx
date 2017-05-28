@@ -18,7 +18,7 @@ export default class Main extends React.Component<any, any> {
         return(
             <MuiThemeProvider muiTheme={lightkMuiTheme}>
                 <div className="appWrapper">
-                    <Paper className="chatWrapper" zDepth={1} >
+                    <Paper className="chatWrapper" zDepth={3} >
                         <Layout />
                     </Paper>
                 </div>
