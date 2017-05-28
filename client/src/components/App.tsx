@@ -1,19 +1,13 @@
 import * as React from 'react';
-import BottomNav from './BottomNav'
 
-interface AppState {
-    selectedIndex: string
+interface Props extends React.Props<App> {
+    text: string
 }
 
-class App extends React.Component<null, AppState> {
-
-    select = (index: string) => {
-        this.setState({selectedIndex: index})
-    };
-
+class App extends React.Component<Props, null> {
     public render() {
         return(
-            <BottomNav />
+            <p>{this.props.text}</p>
         )
     }
 }
