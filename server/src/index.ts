@@ -3,6 +3,11 @@ import * as path from "path";
 import * as http from "http";
 import * as socketIo from "socket.io";
 
+interface Message {
+    from: string;
+    text: string;
+}
+
 class Server {
 
     public app: any;
@@ -36,6 +41,13 @@ class Server {
         })
         this.io.on('connect', (socket: any) => {
             console.log('Connected client on port %s.', this.port)
+
+            socket.on('action', (action: any) => {
+                switch (action.type) {
+                case "SEND_MESSAGE":
+                    this.io.emit('GET_MESSAGE', action.data);    
+                }
+            });
 
             socket.on('disconnect', () => {
                 console.log('Client disconnected');

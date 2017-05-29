@@ -1,20 +1,29 @@
 import * as React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import AppTabs from './appTabs';
-import ChatPanel from './chatPanel';
-import SettingsPanel from './settingsPanel';
+import * as injectTapEventPlugin from 'react-tap-event-plugin';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {MuiThemeProvider, darkBaseTheme} from "material-ui/styles";
+import Paper from 'material-ui/Paper';
+import App from './app';
+import './styles.scss';
 
-export default class Layout extends React.Component<any, any> {
-    public render() {
+// setting material-ui dark theme
+const darkMuiTheme = getMuiTheme(darkBaseTheme);
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
+
+export default class extends React.Component<any, any> {
+    public render(){
         return(
-            <AppTabs>
-                <div className="tabPanel">
-                    <ChatPanel />
+            <MuiThemeProvider muiTheme={darkMuiTheme}>
+                <div className="appWrapper">
+                    <Paper className="chatWrapper" zDepth={3} >
+                        <App />
+                    </Paper>
                 </div>
-                <div className="tabPanel">
-                    <SettingsPanel />
-                </div>
-            </AppTabs>
+            </MuiThemeProvider>
+
         )
     }
 }

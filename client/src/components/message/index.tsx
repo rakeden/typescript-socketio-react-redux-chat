@@ -11,7 +11,6 @@ export default class Message extends React.Component<Props, any> {
 
     constructor(props: any) {
         super(props);
-        console.log(this.props);
     }
 
     render() {

@@ -1,37 +1,45 @@
 import * as React from 'react';
+import { connect } from 'react-redux'
 import Message from '../message/';
 import ChatInput from '../chatInput/';
 import './styles.scss';
+import * as actions from '../../actions/chatActions';
+import { actionCreators } from 'redux-socket-middleware';
+
 
 interface MessageItem {
     from: string;
     text: string
 }
 
-interface MessageItems extends Array<MessageItem> {}
-
-interface State {
-    messages: MessageItems;
+interface ChatPanelState {
+    messages: MessageItem[];
 }
 
-export default class ChatPanel extends React.Component<any, State> {
+interface ChatPanelProps {
+    onMessageSubmit(from: string, message: string): void;
+    dispatch(action: any): void;
+}
+
+class ChatPanel extends React.Component<ChatPanelProps, ChatPanelState> {
     
-    constructor(props: any){
+    constructor(props: ChatPanelProps){
         super(props);
+        console.log(this);
+        this.sendMessage('Jannis', 'Jo');
+        this.sendMessage = this.sendMessage.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.dispatch(actionCreators.connect());
     }
     
-    state: State = {
-        messages: [{
-            from: 'Jannis Migdalas',
-            text: 'Message'
-        },{
-            from: 'Jannis Migdalas',
-            text: 'Message und so weiter und viel mehr Text so fortgesetzt'
-        }]
+    public state: ChatPanelState = {
+        messages: []
     }
 
     public render() {
-        console.log(this);
+        
         return(
             <div className="chatView">
                 <div className="chatList">
@@ -39,8 +47,26 @@ export default class ChatPanel extends React.Component<any, State> {
                         <Message key={index} from={message.from} text={message.text}/>  
                     )}
                 </div>
-                <ChatInput />
+                <ChatInput onMessageSubmit={this.sendMessage} />
             </div>
         )
     }
+
+    public sendMessage(text, from){
+        this.props.dispatch(
+            actions.sendMessage({
+                text: text,
+                from: from
+            })
+        );
+    }
+
 }
+
+const mapStateToProps = (state: ChatPanelState, ownProps: any) => {
+    return {
+        ...state
+    }
+}
+
+export default connect(mapStateToProps)(ChatPanel)

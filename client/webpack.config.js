@@ -8,8 +8,7 @@ const PORT = process.env.PORT || '8088';
 
 module.exports = {
     entry: [
-        './src/index.tsx',
-        './src/scss/global.scss'
+        './src/index.tsx'
     ],
 
     // Specify output
